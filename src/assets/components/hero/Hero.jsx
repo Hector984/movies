@@ -1,15 +1,15 @@
 import "./Hero.css";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Hero = ({ movies }) => {
-    console.log(movies)
     return (
     <div className="movie-carousel-container">
       <Carousel>
       {movies.map((movie) => {
           return (
-            <Paper>
+            <Paper key={movie.imdbId}>
               <div className="movie-card-container">
                 <div className="movie-card" style={{"--img": `url(${movie.backdrops[0]})`}}>
                   <div className="movie-detail">
@@ -17,7 +17,9 @@ const Hero = ({ movies }) => {
                       <img src={movie.poster} alt="" />
                     </div>
                     <div className="movie-title">
-                      <h4>{movie.title}</h4>
+                      <Link to={`/${movie.imdbId}`}>
+                        <h4>{movie.title}</h4>
+                      </Link>
                     </div>
                   </div>
                 </div>
