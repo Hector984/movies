@@ -6,6 +6,8 @@ import Header from "./assets/components/header/Header";
 import Layout from "./assets/components/Layout";
 import Home from "./assets/components/home/Home";
 import Movie from "./assets/components/detail/movie";
+import Trailer from "./assets/components/trailer/Trailer";
+import Reviews from "./assets/components/reviews/Reviews";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -31,6 +33,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home movies={movies} />} />
           <Route path="/:id" element={<Movie />} />
+          <Route path="/trailer/:ytTrailerId" element={<Trailer />} />
+          <Route path="/movie-reviews/:id" element={<Reviews/>}/>
         </Route>
       </Routes>
     </>
